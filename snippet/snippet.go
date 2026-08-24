@@ -21,6 +21,7 @@ type SnippetInfo struct {
 	Description string
 	Command     string `toml:"command,multiline"`
 	Tag         []string
+	Exclusion 	bool
 	Output      string
 }
 
