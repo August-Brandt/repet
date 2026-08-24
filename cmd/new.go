@@ -205,6 +205,7 @@ func _new(in io.ReadCloser, out io.Writer, args []string) (err error) {
 	var command string
 	var description string
 	var tags []string
+	var exclusion bool
 
 	// Load snippets from the main file only
 	var snippets snippet.Snippets
@@ -256,6 +257,15 @@ func _new(in io.ReadCloser, out io.Writer, args []string) (err error) {
 			tags = strings.Fields(t)
 		}
 	}
+	exclusionStr, err := scan(color.HiRedString("Exclusion> (y/n)"), out, in, false)
+	if err != nil {
+		return err
+	}
+	if exclusionStr == "y" || exclusionStr == "Y" {
+		exclusion = true
+	} else {
+		exclusion = false
+	}
 
 	for _, s := range snippets.Snippets {
 		if s.Description == description {
@@ -272,6 +282,7 @@ func _new(in io.ReadCloser, out io.Writer, args []string) (err error) {
 		Description: description,
 		Command:     command,
 		Tag:         tags,
+		Exclusion:   exclusion,
 	}
 
 	snippets.Snippets = append(snippets.Snippets, newSnippet)
