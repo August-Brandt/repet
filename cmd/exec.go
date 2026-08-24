@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path"
 	"strings"
 
 	"github.com/August-Brandt/repet/config"
@@ -19,23 +20,43 @@ var execCmd = &cobra.Command{
 	RunE:  execute,
 }
 
+var repeat *bool
+
 func _execute(in io.ReadCloser, out io.Writer) (err error) {
 	flag := config.Flag
 
-	var options []string
-	if flag.Query != "" {
-		options = append(options, fmt.Sprintf("--query %s", shellescape.Quote(flag.Query)))
-	}
-
-	commands, err := filter(options, flag.FilterTag, false)
-	if err != nil {
-		return err
-	}
-	command := strings.Join(commands, "; ")
-
-	// Show final command before executing it
-	if !flag.Silent {
-		fmt.Fprintf(out, "> %s\n", command)
+	var command string
+	if (*repeat) {
+		configDir, err := config.GetDefaultConfigDir()
+		if err != nil {
+			return err
+		}
+		lastCommandFilePath := path.Join(configDir, "last_command")
+		if _, err := (os.Stat(lastCommandFilePath)); err != nil {
+			fmt.Fprint(out, "No previous command was stored on the system")
+			return nil
+		}
+		commandBytes, err := os.ReadFile(lastCommandFilePath)
+		if err != nil {
+			return err
+		}
+		command = string(commandBytes)
+	} else {
+		var options []string
+		if flag.Query != "" {
+			options = append(options, fmt.Sprintf("--query %s", shellescape.Quote(flag.Query)))
+		}
+	
+		commands, err := filter(options, flag.FilterTag, false)
+		if err != nil {
+			return err
+		}
+		command = strings.Join(commands, "; ")
+	
+		// Show final command before executing it
+		if !flag.Silent {
+			fmt.Fprintf(out, "> %s\n", command)
+		}
 	}
 
 	return run(command, in, out)
@@ -57,4 +78,7 @@ func init() {
 		`Suppress the command output`)
 	execCmd.Flags().BoolVarP(&config.Flag.Copy, "copy", "c", false, 
 		`Copies executed command to clipboard`)
+	repeat = execCmd.Flags().BoolP("repeat", "r", false,
+		`Repeats the previously executed command
+		This flag is mutually exclusive with query, color, and tag`)
 }

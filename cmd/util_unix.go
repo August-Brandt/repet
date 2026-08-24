@@ -3,13 +3,15 @@
 package cmd
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"os/exec"
+	"path"
 	"strconv"
 
 	"github.com/August-Brandt/repet/config"
-	"github.com/August-Brandt/repet/path"
+	repetPath "github.com/August-Brandt/repet/path"
 	"github.com/atotto/clipboard"
 )
 
@@ -24,13 +26,25 @@ func run(command string, r io.Reader, w io.Writer) error {
 	if (config.Flag.Copy) {
 		clipboard.WriteAll(command)
 	}
+	configDir, err := config.GetDefaultConfigDir()
+	if err != nil {
+		return err
+	}
+	fmt.Println("File: " + path.Join(configDir, "last_command"))
+	fmt.Println("Command: " + command)
+	err = os.WriteFile(path.Join(configDir, "last_command"), []byte(command), 0644)
+	if err != nil {
+		panic(err)
+		return err
+	}
+
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = w
 	cmd.Stdin = r
 	return cmd.Run()
 }
 
-func editFile(command string, filePath path.AbsolutePath, startingLine int) error {
+func editFile(command string, filePath repetPath.AbsolutePath, startingLine int) error {
 	command += " +" + strconv.Itoa(startingLine) + " " + filePath.Get()
 	return run(command, os.Stdin, os.Stdout)
 }
