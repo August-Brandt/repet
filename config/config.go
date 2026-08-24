@@ -85,6 +85,7 @@ type FlagConfig struct {
 	UseEditor    bool
 	Silent       bool
 	Raw          bool
+	Copy         bool
 }
 
 // Load loads a config toml

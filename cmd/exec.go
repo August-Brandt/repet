@@ -55,4 +55,6 @@ func init() {
 		`Filter tag`)
 	execCmd.Flags().BoolVarP(&config.Flag.Silent, "silent", "s", false,
 		`Suppress the command output`)
+	execCmd.Flags().BoolVarP(&config.Flag.Copy, "copy", "c", false, 
+		`Copies executed command to clipboard`)
 }

@@ -10,6 +10,7 @@ import (
 
 	"github.com/August-Brandt/repet/config"
 	"github.com/August-Brandt/repet/path"
+	"github.com/atotto/clipboard"
 )
 
 func run(command string, r io.Reader, w io.Writer) error {
@@ -19,6 +20,9 @@ func run(command string, r io.Reader, w io.Writer) error {
 		cmd = exec.Command(line[0], line[1:]...)
 	} else {
 		cmd = exec.Command("sh", "-c", command)
+	}
+	if (config.Flag.Copy) {
+		clipboard.WriteAll(command)
 	}
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = w
