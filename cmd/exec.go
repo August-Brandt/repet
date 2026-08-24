@@ -80,5 +80,5 @@ func init() {
 		`Copies executed command to clipboard`)
 	repeat = execCmd.Flags().BoolP("repeat", "r", false,
 		`Repeats the previously executed command
-		This flag is mutually exclusive with query, color, and tag`)
+This flag is mutually exclusive with query, color, and tag`)
 }
