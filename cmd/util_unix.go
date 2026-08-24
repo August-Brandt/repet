@@ -34,7 +34,6 @@ func run(command string, r io.Reader, w io.Writer) error {
 	fmt.Println("Command: " + command)
 	err = os.WriteFile(path.Join(configDir, "last_command"), []byte(command), 0644)
 	if err != nil {
-		panic(err)
 		return err
 	}
 
