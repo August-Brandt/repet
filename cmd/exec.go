@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/knqyf263/pet/config"
+	"github.com/August-Brandt/repet/config"
 	"github.com/spf13/cobra"
 	"gopkg.in/alessio/shellescape.v1"
 )

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/path"
-	petSync "github.com/knqyf263/pet/sync"
+	"github.com/August-Brandt/repet/config"
+	"github.com/August-Brandt/repet/path"
+	petSync "github.com/August-Brandt/repet/sync"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"gopkg.in/alessio/shellescape.v1"

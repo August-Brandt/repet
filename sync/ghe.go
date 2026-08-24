@@ -8,7 +8,7 @@ import (
 
 	"github.com/briandowns/spinner"
 	"github.com/google/go-github/github"
-	"github.com/knqyf263/pet/config"
+	"github.com/August-Brandt/repet/config"
 	"github.com/pkg/errors"
 	"golang.org/x/oauth2"
 )

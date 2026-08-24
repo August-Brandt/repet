@@ -8,10 +8,10 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/dialog"
-	"github.com/knqyf263/pet/path"
-	"github.com/knqyf263/pet/snippet"
+	"github.com/August-Brandt/repet/config"
+	"github.com/August-Brandt/repet/dialog"
+	"github.com/August-Brandt/repet/path"
+	"github.com/August-Brandt/repet/snippet"
 )
 
 func filter(options []string, tag string, raw bool) (commands []string, err error) {

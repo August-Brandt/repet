@@ -5,9 +5,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/path"
-	"github.com/knqyf263/pet/snippet"
+	"github.com/August-Brandt/repet/config"
+	"github.com/August-Brandt/repet/path"
+	"github.com/August-Brandt/repet/snippet"
 	"github.com/pkg/errors"
 )
 

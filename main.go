@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/knqyf263/pet/cmd"
+import "github.com/August-Brandt/repet/cmd"
 
 func main() {
 	cmd.Execute()

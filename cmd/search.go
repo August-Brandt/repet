@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/knqyf263/pet/config"
+	"github.com/August-Brandt/repet/config"
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 	"gopkg.in/alessio/shellescape.v1"

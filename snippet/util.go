@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"github.com/knqyf263/pet/path"
+	"github.com/August-Brandt/repet/path"
 )
 
 var tomlRegEx = regexp.MustCompile(`^.+\.(toml)$`)

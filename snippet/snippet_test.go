@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/knqyf263/pet/config"
+	"github.com/August-Brandt/repet/config"
 	"github.com/pelletier/go-toml"
 	"github.com/stretchr/testify/assert"
 )

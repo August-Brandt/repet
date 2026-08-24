@@ -6,7 +6,7 @@ import (
 
 	"github.com/atotto/clipboard"
 	"github.com/fatih/color"
-	"github.com/knqyf263/pet/config"
+	"github.com/August-Brandt/repet/config"
 	"github.com/spf13/cobra"
 )
 

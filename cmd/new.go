@@ -11,10 +11,10 @@ import (
 
 	"github.com/chzyer/readline"
 	"github.com/fatih/color"
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/path"
-	"github.com/knqyf263/pet/snippet"
-	petSync "github.com/knqyf263/pet/sync"
+	"github.com/August-Brandt/repet/config"
+	"github.com/August-Brandt/repet/path"
+	"github.com/August-Brandt/repet/snippet"
+	petSync "github.com/August-Brandt/repet/sync"
 	"github.com/spf13/cobra"
 )
 

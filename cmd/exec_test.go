@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/snippet"
+	"github.com/August-Brandt/repet/config"
+	"github.com/August-Brandt/repet/snippet"
 	"github.com/stretchr/testify/assert"
 )
 

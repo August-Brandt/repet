@@ -1,4 +1,4 @@
-module github.com/knqyf263/pet
+module github.com/August-Brandt/repet
 
 go 1.21
 

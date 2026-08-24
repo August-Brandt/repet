@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/snippet"
+	"github.com/August-Brandt/repet/config"
+	"github.com/August-Brandt/repet/snippet"
 	runewidth "github.com/mattn/go-runewidth"
 	"github.com/spf13/cobra"
 )

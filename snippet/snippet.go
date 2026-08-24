@@ -7,8 +7,8 @@ import (
 	"slices"
 	"sort"
 
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/path"
+	"github.com/August-Brandt/repet/config"
+	"github.com/August-Brandt/repet/path"
 	"github.com/pelletier/go-toml"
 )
 

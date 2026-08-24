@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/knqyf263/pet/path"
+	"github.com/August-Brandt/repet/path"
 	"github.com/pelletier/go-toml"
 	"github.com/pkg/errors"
 )
