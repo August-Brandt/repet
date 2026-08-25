@@ -33,7 +33,7 @@ func _execute(in io.ReadCloser, out io.Writer) (err error) {
 		}
 		lastCommandFilePath := path.Join(configDir, "last_command")
 		if _, err := (os.Stat(lastCommandFilePath)); err != nil {
-			fmt.Fprint(out, "No previous command was stored on the system")
+			fmt.Fprintln(out, "No previous command was stored on the system")
 			return nil
 		}
 		commandBytes, err := os.ReadFile(lastCommandFilePath)
