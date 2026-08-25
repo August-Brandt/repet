@@ -37,9 +37,9 @@ var (
 
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
-	Use:           "pet",
+	Use:           "repet",
 	Short:         "Simple command-line snippet manager.",
-	Long:          `pet - Simple command-line snippet manager.`,
+	Long:          `repet - Simple command-line snippet manager.`,
 	SilenceErrors: true,
 	SilenceUsage:  true,
 }
