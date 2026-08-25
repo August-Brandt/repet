@@ -86,6 +86,7 @@ type FlagConfig struct {
 	Silent       bool
 	Raw          bool
 	Copy         bool
+	Exclude      bool
 }
 
 // Load loads a config toml

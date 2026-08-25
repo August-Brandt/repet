@@ -64,6 +64,7 @@ func filter(options []string, tag string, raw bool) (commands []string, err erro
 		text += t + "\n"
 	}
 
+	config.Flag.Exclude = true // Don't save search command as previous command
 	var buf bytes.Buffer
 	selectCmd := fmt.Sprintf("%s %s",
 		config.Conf.General.SelectCmd, strings.Join(options, " "))
@@ -85,6 +86,7 @@ func filter(options []string, tag string, raw bool) (commands []string, err erro
 
 	if params != nil {
 		snippetInfo := snippetTexts[lines[0]]
+		config.Flag.Exclude = snippetInfo.Exclusion
 		dialog.CurrentCommand = snippetInfo.Command
 		dialog.GenerateParamsLayout(params, dialog.CurrentCommand)
 		res := []string{dialog.FinalCommand}
@@ -92,6 +94,7 @@ func filter(options []string, tag string, raw bool) (commands []string, err erro
 	}
 	for _, line := range lines {
 		snippetInfo := snippetTexts[line]
+		config.Flag.Exclude = snippetInfo.Exclusion
 		commands = append(commands, fmt.Sprint(snippetInfo.Command))
 	}
 	return commands, nil

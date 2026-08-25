@@ -52,11 +52,10 @@ func _execute(in io.ReadCloser, out io.Writer) (err error) {
 			return err
 		}
 		command = strings.Join(commands, "; ")
-	
-		// Show final command before executing it
-		if !flag.Silent {
-			fmt.Fprintf(out, "> %s\n", command)
-		}
+	}
+	// Show final command before executing it
+	if !flag.Silent {
+		fmt.Fprintf(out, "> %s\n", command)
 	}
 
 	return run(command, in, out)

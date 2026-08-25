@@ -3,7 +3,6 @@
 package cmd
 
 import (
-	"fmt"
 	"io"
 	"os"
 	"os/exec"
@@ -23,18 +22,18 @@ func run(command string, r io.Reader, w io.Writer) error {
 	} else {
 		cmd = exec.Command("sh", "-c", command)
 	}
-	if (config.Flag.Copy) {
+	if config.Flag.Copy {
 		clipboard.WriteAll(command)
 	}
-	configDir, err := config.GetDefaultConfigDir()
-	if err != nil {
-		return err
-	}
-	fmt.Println("File: " + path.Join(configDir, "last_command"))
-	fmt.Println("Command: " + command)
-	err = os.WriteFile(path.Join(configDir, "last_command"), []byte(command), 0644)
-	if err != nil {
-		return err
+	if !config.Flag.Exclude {
+		configDir, err := config.GetDefaultConfigDir()
+		if err != nil {
+			return err
+		}
+		err = os.WriteFile(path.Join(configDir, "last_command"), []byte(command), 0644)
+		if err != nil {
+			return err
+		}
 	}
 
 	cmd.Stderr = os.Stderr
