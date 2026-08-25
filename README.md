@@ -5,7 +5,7 @@
 
 # Motivation
 
-`RePet` is a fork of the [pet](https://github.com/knqyf263/pet) cli tool.
+`RePet` is a fork of the [pet](https://github.com/knqyf263/pet) cli tool. `RePet` is backwards compatible with `pet`.
 
 `RePet` adds the functionality of repeating the previous command called, and the ability to put a command into the clip board after executing.
 
